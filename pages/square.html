@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" style="width: 600px;height: 600px;background: #cccccc;margin: 30px auto;"></canvas>
+<script>
+    Array.prototype.callEach = function (callback,num) {
+        for (var i = 0; i < this.length; i++) {
+            if(i<num){
+                callback.call(this[i]);
+            }
+        }
+    };
+    window.onload = function(){
+        function randomSort(a, b) {
+            return Math.random() > 0.5 ? -1 : 1;
+        }
+        var canvas = document.getElementById("canvas"),  //获取Canvas画布对象
+            ctx = canvas.getContext('2d'); //获取2D上下文对象，大多数Canvas API均为此对象方法
+        var squareBox = [];
+        for(var w = 0;w<canvas.width;w+=20){
+            for(var h = 0;h<canvas.height;h+=20){
+                squareBox.push({x:w-3,y:h-3,
+                paint:function(){
+                    var focallength = 250;
+                    var image = new Image(); //定义一个图片对象
+                    image.src = '../image/home.jpg';
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.drawImage(image,this.x,this.y,20,20);
+                    ctx.restore();
+                }
+                });
+            }
+        }
+        console.log(squareBox)
+        squareBox = squareBox.sort(randomSort);
+        squareBox.callEach(function(){
+            this.paint();
+        },60)
+
+    }
+</script>
+</body>
+</html>

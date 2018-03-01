@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>生成图片</button>
+<canvas style="width: 600px;height:600px;margin: 50px auto;border: 1px solid #333;" id="my-canvas"></canvas>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("my-canvas");
+        var ctx = canvas.getContext("2d");
+        var focallength = 250;
+        var obj = {
+            arcX:150,
+            arcY:30,
+            arcR:20,
+            locx:20,
+            locy:20,
+            arcSAngle:0,
+            arcCounterclockwise:2*Math.PI,
+            radius:10,
+            paint:function(){
+                var t = this;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(t.arcX, t.arcY, t.arcR, t.arcSAngle, t.arcCounterclockwise);
+                ctx.fillStyle = "rgba(" + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + "," + parseInt(Math.random() * 255) + "," + 1 + ")";
+                ctx.fill();
+                ctx.restore();
+            }
+        };
+        $("button").on("click",function(){
+            obj.arcY+=.2;
+            obj.arcX-=.5;
+            console.log(obj.arcY,obj.arcX)
+            obj.paint();
+        });
+        obj.paint();
+        /*(function drawFrmae(){
+            window.requestAnimationFrame(drawFrmae);
+            obj.x = obj.locx;
+            obj.y = obj.locy;
+            obj.z = Math.random() * focallength * 2 - focallength;
+            obj.paint();
+
+        }());*/
+        var timer = setInterval(function(){
+            obj.arcY+=.2;
+            obj.arcX-=.5;
+            if(obj.arcX>0){
+                obj.paint();
+            }else{
+                clearInterval(timer);
+            }
+
+        },200)
+
+
+    }
+</script>
+</body>
+</html>

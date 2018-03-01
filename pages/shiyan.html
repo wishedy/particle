@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>particleDEMO</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/yiding.ico">
+    <meta name="keywords" content="骨科、住培、规培、骨科住院医师规范化培训、医生继续教育、教育、骨科视频、创伤、关节、脊柱、足踝、运动医学、康复、小儿骨科、手外科、骨肿瘤">
+    <meta name="viewport" content="width=750">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="../css/base/base.css">
+    <link rel="stylesheet" href="../css/index/index.css">
+    <script src="https://cdn.bootcss.com/rem/1.3.4/js/rem.js"></script>
+    <meta data-alcode="a8"/>
+</head>
+<body>
+<div class="particle-container" style="height: 250px;position: relative;">
+    <canvas style="width:100%;height:100%;" id="particle"></canvas>
+    <canvas style="width:100%;height:100%;display: none;border: 1px solid #ff0000;position: absolute;top:0;left: 0;bottom:0;right:0;" id="word"></canvas>
+</div>
+<!--<canvas style="width:600px;height:250px;display: block;border: 1px solid #ff0000;position: absolute;top:0;left: 0;bottom:0;right:0;" id="word"></canvas>-->
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="../js/shiyan.js"></script>
+<script>
+    $(document).ready(function(){
+        Particle.init({
+            txt:"CAOS",
+            canvas:document.getElementById("particle")
+        })
+    });
+</script>
+</body>
+</html>

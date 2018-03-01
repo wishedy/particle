@@ -1,0 +1,12 @@
+@import "../common/utilities";
+html{
+  background: #0b7f9c;
+  height: 100%;
+  width: 100%;
+}
+.particle-container{
+  width: rem(600px);
+  height: rem(600px);
+  margin: rem(30px) auto;
+  border: 1px solid #333;
+}
