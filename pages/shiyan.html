@@ -19,7 +19,9 @@
 <body>
 <div class="particle-container" style="height: 250px;position: relative;">
     <canvas style="width:100%;height:100%;" id="particle"></canvas>
-    <canvas style="width:100%;height:100%;display: none;border: 1px solid #ff0000;position: absolute;top:0;left: 0;bottom:0;right:0;" id="word"></canvas>
+    <canvas style="width:100%;height:100%;display: none;border: 1px solid #ff0000;z-index:1;position: absolute;top:0;left: 0;bottom:0;right:0;" id="word"></canvas>
+    <canvas style="width:100%;height:100%;display: block;z-index:3;border: 1px solid #ff0000;position: absolute;top:0;left: 0;bottom:0;right:0;" id="light"></canvas>
+    <canvas style="width:100%;height:100%;display: none;z-index:2;border: 1px solid #ff0000;position: absolute;top:0;left: 0;bottom:0;right:0;" id="lightBg"></canvas>
 </div>
 <!--<canvas style="width:600px;height:250px;display: block;border: 1px solid #ff0000;position: absolute;top:0;left: 0;bottom:0;right:0;" id="word"></canvas>-->
 
